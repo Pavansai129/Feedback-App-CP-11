@@ -32,30 +32,14 @@ class Feedback extends Component {
                 How satisfied are you with our customer support performance?
               </h1>
               <ul className="emojis-container">
-                <li>
-                  <img
-                    src={resources.emojis[0].imageUrl}
-                    alt={resources.emojis[0].name}
-                    onClick={this.onClickingEmoji}
-                  />
-                  <p>{resources.emojis[0].name}</p>
-                </li>
-                <li>
-                  <img
-                    src={resources.emojis[1].imageUrl}
-                    alt={resources.emojis[1].name}
-                    onClick={this.onClickingEmoji}
-                  />
-                  <p>{resources.emojis[0].name}</p>
-                </li>
-                <li>
-                  <img
-                    src={resources.emojis[2].imageUrl}
-                    alt={resources.emojis[2].name}
-                    onClick={this.onClickingEmoji}
-                  />
-                  <p>{resources.emojis[0].name}</p>
-                </li>
+                {resources.emojis.map(each => (
+                  <li key={each.id}>
+                    <button type="button" onClick={this.onClickingEmoji}>
+                      <img src={each.imageUrl} alt={each.name} />
+                      <p>{each.name}</p>
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
